@@ -89,13 +89,39 @@ CREATE TABLE question_answer(
 id INT(100) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 reg_date DATETIME NOT NULL,
 update_date DATETIME NOT NULL,
-`body` TEXT NOT NULL
+`body` TEXT NOT NULL,
+Question_id INT NOT NULL
 );
 
 INSERT INTO question_answer SET
  reg_date = NOW(),
  update_date  = NOW(),
- `body` = "환불 안해줄꺼야";
+ `body` = "환불 안해줄꺼야",
+ Question_id = 1;
+
+ INSERT INTO question_answer SET
+ reg_date = NOW(),
+ update_date  = NOW(),
+ `body` = "환불 안해줄꺼야",
+ Question_id = 2;
+
+ INSERT INTO question_answer SET
+ reg_date = NOW(),
+ update_date  = NOW(),
+ `body` = "환불 안해줄꺼야",
+ Question_id = 3;
+
+ INSERT INTO question_answer SET
+ reg_date = NOW(),
+ update_date  = NOW(),
+ `body` = "환불 안해줄꺼야",
+ Question_id = 4;
+
+ INSERT INTO question_answer SET
+ reg_date = NOW(),
+ update_date  = NOW(),
+ `body` = "환불 안해줄꺼야",
+ Question_id = 5;
 
 SELECT * FROM question_answer;
 
@@ -103,28 +129,42 @@ CREATE TABLE Question (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `subject` VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
-    create_date DATETIME NOT NULL
+    create_date DATETIME NOT NULL,
+    mall_user_id INT UNSIGNED NOT NULL
 );
 
 INSERT INTO Question SET
 create_date = NOW(),
 `subject` = '질문 1',
-content = '주문 내역은 어디서 확인하나요 ?';
+content = '주문 내역은 어디서 확인하나요 ?',
+mall_user_id = 2;
 
 INSERT INTO Question SET
 create_date = NOW(),
 `subject` = '질문 2',
-content = '환불 기간은 어떻게 되나요 ?';
+content = '환불 기간은 어떻게 되나요 ?',
+mall_user_id = 2;
 
 INSERT INTO Question SET
 create_date = NOW(),
 `subject` = '질문 3',
-content = '교환 신청은 어떻게 하나요 ?';
+content = '교환 신청은 어떻게 하나요 ?',
+mall_user_id = 2;
 
 INSERT INTO Question SET
 create_date = NOW(),
 `subject` = '질문 4',
-content = '교환 발송은 언제 되나요 ?';
+content = '교환 발송은 언제 되나요 ?',
+mall_user_id = 2;
 
-`create_date`
-SELECT * FROM question WHERE
+INSERT INTO Question SET
+create_date = NOW(),
+`subject` = '질문 5',
+content = '교환 발송은 언제 되나요 ?',
+mall_user_id = 1;
+
+SELECT * FROM Question;
+
+SELECT * FROM Question WHERE mall_user_id = 2;
+
+SELECT * FROM Question q WHERE q.mall_user_id = 2
