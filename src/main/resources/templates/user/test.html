@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="question : ${questionList}">
+        [[${question.subject}]] // [[${question.mallUser.name}]] //
+    </div>
+</body>
+</html>
